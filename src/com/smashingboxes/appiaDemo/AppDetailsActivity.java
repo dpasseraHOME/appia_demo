@@ -1,10 +1,15 @@
 package com.smashingboxes.appiaDemo;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.res.TypedArray;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.ContextThemeWrapper;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.Button;
@@ -20,12 +25,7 @@ public class AppDetailsActivity extends Activity {
 	private String _price;
 	private String _dev;
 	
-	private Integer[] pics = {
-			R.drawable.detail_01,
-			R.drawable.detail_02,
-			R.drawable.detail_03,
-			R.drawable.detail_04
-		};
+	final Context context = this;
 	
 	@Override
 	public void onCreate(Bundle savedInstanceState) {
@@ -52,7 +52,34 @@ public class AppDetailsActivity extends Activity {
 		dev.setText(_dev);
 		
 		Button button = (Button) findViewById(R.id.details_purchase_button);
-		button.setText(_price);
+		button.setText("Install " + _price);
+		button.setOnClickListener(mOnButtonClicked);
 	}
+	
+	private OnClickListener mOnButtonClicked = new OnClickListener() {
+		
+		public void onClick(View v) {
+			ContextThemeWrapper ctw = new ContextThemeWrapper(context, R.style.alert_style);
+			AlertDialog.Builder builder = new AlertDialog.Builder(ctw);
+			builder.setTitle("Purchase App?")
+         	    .setMessage( "Are you sure you want to buy this app? Super sure? Really?" )
+				.setCancelable(false)
+				.setPositiveButton("Buy App", new DialogInterface.OnClickListener() {					
+					@Override
+					public void onClick(DialogInterface dialog, int which) {
+						dialog.cancel();
+					}
+				})
+				.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {					
+					@Override
+					public void onClick(DialogInterface dialog, int which) {
+						dialog.cancel();
+					}
+				});
+			AlertDialog alert = builder.create();
+			alert.show();
+		}
+		
+	};
 	
 }

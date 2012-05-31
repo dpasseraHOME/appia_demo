@@ -1,10 +1,10 @@
 Launch criteria
 - featured app scroller
-- purchase modal
 - fake search results
 
 Nice-to-have
 - unique icons
+- style purchase modal
 
 Don't forget
 - title label glow

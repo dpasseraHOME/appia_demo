@@ -56,9 +56,21 @@
         android:paddingBottom="4dp" />
     
     <HorizontalScrollView 
-        android:layout_height="116dp"
-        android:layout_width="fill_parent">
-        
+        android:layout_height="wrap_content"
+        android:layout_width="fill_parent"
+        android:paddingTop="20dp"
+        android:paddingBottom="20dp"
+        android:paddingLeft="6dp"
+        android:paddingRight="6dp">
+	    
+        <LinearLayout
+            android:id="@+id/featured"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="horizontal" >
+            
+        </LinearLayout>
+	    
     </HorizontalScrollView>
     
      <LinearLayout 
