@@ -1,6 +1,5 @@
 Launch criteria
 - featured app scroller
-- app details
 - purchase modal
 - fake search results
 

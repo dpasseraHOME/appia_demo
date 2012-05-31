@@ -56,17 +56,115 @@
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:textColor="#ffffff"
         android:textStyle="normal" />
-
+
     <Button
-        android:id="@+id/button1"
+        android:id="@+id/details_purchase_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/imageView1"
         android:layout_alignParentRight="true"
         android:layout_alignTop="@+id/details_text_name"
         android:layout_marginRight="6dp"
-        android:text="@string/details_install"
         android:background="@drawable/button_install"
+        android:text="@string/details_install"
         android:textColor="#ffffff"
         android:textStyle="bold" />
+
+    <!-- Gallery
+        android:id="@+id/gallery1"
+        android:layout_width="match_parent"
+        android:layout_height="180dp"
+        android:layout_alignLeft="@+id/imageView1"
+        android:layout_alignRight="@+id/details_purchase_button"
+        android:layout_below="@+id/imageView1"
+        android:layout_marginTop="14dp" /-->
+
+    <HorizontalScrollView
+        android:id="@+id/horizontalScrollView1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/imageView1"
+        android:layout_alignRight="@+id/details_purchase_button"
+        android:layout_below="@+id/imageView1"
+        android:layout_marginTop="14dp" >
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:paddingTop="6dp"
+            android:paddingBottom="6dp" >
+
+            <ImageView
+                android:id="@+id/imageView2"
+                android:layout_marginLeft="4dp"
+                android:layout_marginRight="4dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/detail_01" />
+            
+            <ImageView
+                android:id="@+id/imageView3"
+                android:layout_marginLeft="4dp"
+                android:layout_marginRight="4dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/detail_02" />
+            
+            <ImageView
+                android:id="@+id/imageView4"
+                android:layout_marginLeft="4dp"
+                android:layout_marginRight="4dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/detail_03" />
+            
+            <ImageView
+                android:id="@+id/imageView5"
+                android:layout_marginLeft="4dp"
+                android:layout_marginRight="4dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/detail_04" />
+
+        </LinearLayout>
+    </HorizontalScrollView>
+
+    <TextView
+        android:id="@+id/details_description_header"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/horizontalScrollView1"
+        android:background="@drawable/title_bar"
+        android:paddingBottom="4dp"
+        android:paddingLeft="6dp"
+        android:paddingTop="4dp"
+        android:layout_marginTop="12dp"
+        android:text="@string/details_description_header"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:textColor="#ffffff"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/horizontalScrollView1"
+        android:layout_below="@+id/details_description_header"
+        android:layout_marginTop="12dp"
+        android:text="@string/details_description_A"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/textView1"
+        android:layout_below="@+id/textView1"
+        android:layout_marginTop="8dp"
+        android:text="@string/details_description_B"
+        android:textAppearance="?android:attr/textAppearanceSmall" />
     
 </RelativeLayout>

@@ -16,5 +16,8 @@
     
     <!-- app details -->
     <string name="details_install">Install</string>
+    <string name="details_description_header">Description</string>
+    <string name="details_description_A">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</string>
+    <string name="details_description_B">Ut sit amet leo eu nunc tempus vehicula sit amet vel tellus. Duis volutpat diam in tellus mattis eget sodales massa cursus. Proin tincidunt nulla quis quam cursus sodales. Mauris vitae vulputate lorem. Suspendisse nisi libero, ullamcorper nec tincidunt sed, lobortis a nibh. In fringilla imperdiet quam at tincidunt. Pellentesque pulvinar risus vitae dolor fermentum auctor eu pharetra erat. Nullam nec nisi nibh, ut consectetur lorem.</string>
 
 </resources>
