@@ -15,5 +15,6 @@
     <string name="home_friends">Installed by friends</string>
     
     <!-- app details -->
+    <string name="details_install">Install</string>
 
 </resources>

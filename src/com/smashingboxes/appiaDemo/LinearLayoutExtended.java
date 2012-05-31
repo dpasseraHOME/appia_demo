@@ -9,6 +9,7 @@ public class LinearLayoutExtended extends LinearLayout {
 	public String _appId;
 	public String _name;
 	public String _price;
+	public String _dev;
 	
 	public LinearLayoutExtended(Context context, AttributeSet attrs) {
 		super(context, attrs);

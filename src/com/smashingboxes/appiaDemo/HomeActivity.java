@@ -1,6 +1,7 @@
 package com.smashingboxes.appiaDemo;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -29,12 +30,12 @@ public class HomeActivity extends Activity {
 	}
 	
 	private static Object[] dataObjects = new Object[]{
-		new AppInfo("01", "Good App", "$0.99"), new AppInfo("02", "Fun App", "Free"), new AppInfo("03", "Hot App", "$1.99"),
-		new AppInfo("04", "Pierre App", "$0.99"), new AppInfo("05", "Rudy App", "$0.99"), new AppInfo("06", "Matheiu App", "$0.99"),
-		new AppInfo("07", "Dog App", "$0.99"), new AppInfo("08", "Cat App", "Free"), new AppInfo("09", "Shoe App", "$0.99"),
-		new AppInfo("10", "Good App", "$1.99"), new AppInfo("11", "Fun App", "$0.99"), new AppInfo("12", "Hot App", "$0.99"),
-		new AppInfo("13", "Pierre App", "$0.99"), new AppInfo("14", "Rudy App", "$0.99"), new AppInfo("15", "Matheiu App", "$0.99"),
-		new AppInfo("16", "Rain App", "Free"), new AppInfo("17", "Sun App", "$2.99"), new AppInfo("Cloud", "Shoe App", "$0.99")
+		new AppInfo("01", "Good App", "$0.99", "App Co."), new AppInfo("02", "Fun App", "Free", "Computer Inc."), new AppInfo("03", "Hot App", "$1.99", "Mega Apps"),
+		new AppInfo("04", "Pierre App", "$0.99", "App Co."), new AppInfo("05", "Rudy App", "$0.99", "Computer Inc."), new AppInfo("06", "Matheiu App", "$0.99", "Mega Apps"),
+		new AppInfo("07", "Dog App", "$0.99", "App Co."), new AppInfo("08", "Cat App", "Free", "Computer Inc."), new AppInfo("09", "Shoe App", "$0.99", "Mega Apps"),
+		new AppInfo("10", "Good App", "$1.99", "App Co."), new AppInfo("11", "Fun App", "$0.99", "Computer Inc."), new AppInfo("12", "Hot App", "$0.99", "Mega Apps"),
+		new AppInfo("13", "Pierre App", "$0.99", "App Co."), new AppInfo("14", "Rudy App", "$0.99", "Computer Inc."), new AppInfo("15", "Matheiu App", "$0.99", "Mega Apps"),
+		new AppInfo("16", "Rain App", "Free", "App Co."), new AppInfo("17", "Sun App", "$2.99", "Computer Inc."), new AppInfo("Cloud", "Shoe App", "$0.99", "Mega Apps")
 	};
 	
 	private class GridAdapter extends BaseAdapter {
@@ -47,7 +48,13 @@ public class HomeActivity extends Activity {
 			
 			public void onClick(View v) {
 				LinearLayoutExtended ll = (LinearLayoutExtended) v;
-				Toast.makeText(getApplicationContext(), "Click: " + ll._appId, Toast.LENGTH_SHORT).show();
+				//Toast.makeText(getApplicationContext(), "Click: " + ll._appId + " : " + ll._name + " : " + ll._price + " : " + ll._dev, Toast.LENGTH_SHORT).show();
+				Intent appDetailsIntent = new Intent(getApplicationContext(), AppDetailsActivity.class);
+				appDetailsIntent.putExtra("appId",ll._appId);
+				appDetailsIntent.putExtra("name",ll._name);
+				appDetailsIntent.putExtra("price",ll._price);
+				appDetailsIntent.putExtra("dev", ll._dev);
+				startActivity(appDetailsIntent);
 			}
 			
 		};
@@ -73,7 +80,8 @@ public class HomeActivity extends Activity {
 			
 			v._appId = ((AppInfo) dataObjects[position])._id;
 			v._name = ((AppInfo) dataObjects[position])._name;
-			v._name = ((AppInfo) dataObjects[position])._price;
+			v._price = ((AppInfo) dataObjects[position])._price;
+			v._dev = ((AppInfo) dataObjects[position])._dev;
 			
 			TextView name = (TextView) v.findViewById(R.id.icon_text_name);
 			name.setText(((AppInfo) dataObjects[position])._name);
