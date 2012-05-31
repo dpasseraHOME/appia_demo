@@ -4,10 +4,12 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.GridView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class HomeActivity extends Activity {
 
@@ -41,9 +43,14 @@ public class HomeActivity extends Activity {
 			super();
 		}
 		
-		public void onClick(View v) {
+		private OnClickListener mOnButtonClicked = new OnClickListener() {
 			
-		}
+			public void onClick(View v) {
+				LinearLayoutExtended ll = (LinearLayoutExtended) v;
+				Toast.makeText(getApplicationContext(), "Click: " + ll._appId, Toast.LENGTH_SHORT).show();
+			}
+			
+		};
 
 		@Override
 		public int getCount() {
@@ -62,13 +69,19 @@ public class HomeActivity extends Activity {
 
 		@Override
 		public View getView(int position, View convertView, ViewGroup parent) {
-			View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.icon_view, null);
+			LinearLayoutExtended v = (LinearLayoutExtended) LayoutInflater.from(parent.getContext()).inflate(R.layout.icon_view, null);
+			
+			v._appId = ((AppInfo) dataObjects[position])._id;
+			v._name = ((AppInfo) dataObjects[position])._name;
+			v._name = ((AppInfo) dataObjects[position])._price;
 			
 			TextView name = (TextView) v.findViewById(R.id.icon_text_name);
 			name.setText(((AppInfo) dataObjects[position])._name);
 			
 			TextView price = (TextView) v.findViewById(R.id.icon_text_price);
 			price.setText(((AppInfo) dataObjects[position])._price); 
+			
+			v.setOnClickListener(mOnButtonClicked);
 			
 			return v;
 		}

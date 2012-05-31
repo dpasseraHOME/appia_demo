@@ -1,3 +1,12 @@
+Launch criteria
+- featured app scroller
+- app details
+- purchase modal
+- fake search results
+
+Nice-to-have
+- unique icons
+
 Don't forget
 - title label glow
 - style search assets
