@@ -53,5 +53,60 @@
         android:textStyle="bold"
         android:paddingTop="4dp"
         android:paddingBottom="4dp" />
+    
+    <HorizontalScrollView 
+        android:layout_height="116dp"
+        android:layout_width="fill_parent">
+        
+    </HorizontalScrollView>
+    
+     <LinearLayout 
+        android:layout_height="wrap_content"
+        android:layout_width="fill_parent"
+        android:weightSum="1.0"
+        android:orientation="horizontal" >    
+    
+	    <TextView
+	        android:id="@+id/textView1"
+	        android:layout_width="0dp"
+	        android:layout_height="wrap_content"
+	        android:background="@drawable/title_bar"
+	        android:paddingLeft="6dp"
+	        android:text="@string/home_recommended"
+	        android:textAppearance="?android:attr/textAppearanceSmall"
+	        android:textColor="#ffffff"
+	        android:textStyle="bold"
+	        android:paddingTop="4dp"
+	        android:paddingBottom="4dp"
+	        android:layout_weight="0.5" />
+	    
+	    <TextView
+	        android:id="@+id/textView2"
+	        android:layout_width="0dp"
+	        android:layout_height="wrap_content"
+	        android:background="@drawable/title_bar"
+	        android:paddingLeft="6dp"
+	        android:text="@string/home_friends"
+	        android:textAppearance="?android:attr/textAppearanceSmall"
+	        android:textColor="#ffffff"
+	        android:textStyle="bold"
+	        android:paddingTop="4dp"
+	        android:paddingBottom="4dp"
+	        android:layout_weight="0.5" />
+    
+    </LinearLayout>
+    
+     <GridView
+         android:id="@+id/home_app_grid"
+         android:layout_width="fill_parent"
+         android:layout_height="wrap_content"
+         android:numColumns="2"
+         android:verticalSpacing="1dp"
+         android:horizontalSpacing="1dp"
+         android:stretchMode="columnWidth" >         
+         
+         
+         
+     </GridView>
 
 </LinearLayout>

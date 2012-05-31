@@ -11,6 +11,8 @@
     <string name="home_search_button">O</string>
     <string name="home_greeting">Welcome,</string>
     <string name="home_featured">Featured</string>
+    <string name="home_recommended">Recommended</string>
+    <string name="home_friends">Installed by friends</string>
     
     <!-- app details -->
 
