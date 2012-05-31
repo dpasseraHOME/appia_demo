@@ -8,6 +8,8 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.GridView;
 import android.widget.HorizontalScrollView;
 import android.widget.LinearLayout;
@@ -20,9 +22,9 @@ public class HomeActivity extends Activity {
 		new AppInfo("01", "Good App", "$0.99", "App Co."), new AppInfo("02", "Fun App", "Free", "Computer Inc."), new AppInfo("03", "Hot App", "$1.99", "Mega Apps"),
 		new AppInfo("04", "Pierre App", "$0.99", "App Co."), new AppInfo("05", "Rudy App", "$0.99", "Computer Inc."), new AppInfo("06", "Matheiu App", "$0.99", "Mega Apps"),
 		new AppInfo("07", "Dog App", "$0.99", "App Co."), new AppInfo("08", "Cat App", "Free", "Computer Inc."), new AppInfo("09", "Shoe App", "$0.99", "Mega Apps"),
-		new AppInfo("10", "Good App", "$1.99", "App Co."), new AppInfo("11", "Fun App", "$0.99", "Computer Inc."), new AppInfo("12", "Hot App", "$0.99", "Mega Apps"),
-		new AppInfo("13", "Pierre App", "$0.99", "App Co."), new AppInfo("14", "Rudy App", "$0.99", "Computer Inc."), new AppInfo("15", "Matheiu App", "$0.99", "Mega Apps"),
-		new AppInfo("16", "Rain App", "Free", "App Co."), new AppInfo("17", "Sun App", "$2.99", "Computer Inc."), new AppInfo("Cloud", "Shoe App", "$0.99", "Mega Apps")
+		new AppInfo("01", "Good App", "$1.99", "App Co."), new AppInfo("04", "Fun App", "$0.99", "Computer Inc."), new AppInfo("12", "Hot App", "$0.99", "Mega Apps"),
+		new AppInfo("02", "Pierre App", "$0.99", "App Co."), new AppInfo("05", "Rudy App", "$0.99", "Computer Inc."), new AppInfo("15", "Matheiu App", "$0.99", "Mega Apps"),
+		new AppInfo("03", "Rain App", "Free", "App Co."), new AppInfo("06", "Sun App", "$2.99", "Computer Inc."), new AppInfo("07", "Shoe App", "$0.99", "Mega Apps")
 	};	
 
 	@Override
@@ -32,6 +34,9 @@ public class HomeActivity extends Activity {
 		
 		Bundle extras = getIntent().getExtras();
 		String email = extras.getString("email");
+		
+		Button buttonSearch = (Button) findViewById(R.id.button1);
+		buttonSearch.setOnClickListener(bOnButtonClicked);
 		
 		TextView greeting = (TextView) findViewById(R.id.home_welcome_text);
 		greeting.setText(getString(R.string.home_greeting) + " " + email + ".");
@@ -71,6 +76,21 @@ public class HomeActivity extends Activity {
 			appDetailsIntent.putExtra("price",ll._price);
 			appDetailsIntent.putExtra("dev", ll._dev);
 			startActivity(appDetailsIntent);
+		}
+		
+	};
+	
+	private OnClickListener bOnButtonClicked = new OnClickListener() {
+		
+		public void onClick(View v) {
+			String query = null;
+			EditText et = (EditText) findViewById(R.id.home_search_field);
+			query = et.getText().toString();
+			//Toast.makeText(getApplicationContext(), "Click: " + query, Toast.LENGTH_SHORT).show();
+		
+			Intent resultsIntent = new Intent(getApplicationContext(), FakeSearchResultsActivity.class);
+			resultsIntent.putExtra("query", query);
+			startActivity(resultsIntent);
 		}
 		
 	};

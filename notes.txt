@@ -1,5 +1,4 @@
 Launch criteria
-- featured app scroller
 - fake search results
 
 Nice-to-have

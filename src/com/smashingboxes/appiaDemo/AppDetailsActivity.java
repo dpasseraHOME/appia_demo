@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.res.TypedArray;
 import android.os.Bundle;
 import android.util.Log;
@@ -13,6 +14,7 @@ import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Gallery;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -41,6 +43,9 @@ public class AppDetailsActivity extends Activity {
 			//Toast.makeText(getApplicationContext(), _appId + " : " + _name + " : " + _price + " : " + _dev, Toast.LENGTH_SHORT).show();
 		}
 		
+		Button buttonSearch = (Button) findViewById(R.id.details_search_button);
+		buttonSearch.setOnClickListener(bOnButtonClicked);
+		
 		populateLayout();
 	}
 	
@@ -55,6 +60,21 @@ public class AppDetailsActivity extends Activity {
 		button.setText("Install " + _price);
 		button.setOnClickListener(mOnButtonClicked);
 	}
+	
+	private OnClickListener bOnButtonClicked = new OnClickListener() {
+		
+		public void onClick(View v) {
+			String query = null;
+			EditText et = (EditText) findViewById(R.id.editText1);
+			query = et.getText().toString();
+			//Toast.makeText(getApplicationContext(), "Click: " + query, Toast.LENGTH_SHORT).show();
+		
+			Intent resultsIntent = new Intent(getApplicationContext(), FakeSearchResultsActivity.class);
+			resultsIntent.putExtra("query", query);
+			startActivity(resultsIntent);
+		}
+		
+	};
 	
 	private OnClickListener mOnButtonClicked = new OnClickListener() {
 		

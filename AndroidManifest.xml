@@ -26,6 +26,7 @@
         <activity android:name=".BrowseResultsActivity"></activity>
         <activity android:name=".AppDetailsActivity"></activity>
         <activity android:name=".MyAppsActivity"></activity>
+        <activity android:name=".FakeSearchResultsActivity"></activity>
     </application>
 
 </manifest>
