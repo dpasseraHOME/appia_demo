@@ -6,6 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.GridView;
 import android.widget.TextView;
 
 public class HomeActivity extends Activity {
@@ -20,6 +21,9 @@ public class HomeActivity extends Activity {
 		
 		TextView greeting = (TextView) findViewById(R.id.home_welcome_text);
 		greeting.setText(getString(R.string.home_greeting) + " " + email + ".");
+		
+		GridView appsGrid = (GridView) findViewById(R.id.home_app_grid);
+		appsGrid.setAdapter(new GridAdapter());
 	}
 	
 	private static Object[] dataObjects = new Object[]{
@@ -35,6 +39,10 @@ public class HomeActivity extends Activity {
 		
 		public GridAdapter() {
 			super();
+		}
+		
+		public void onClick(View v) {
+			
 		}
 
 		@Override
@@ -62,7 +70,7 @@ public class HomeActivity extends Activity {
 			TextView price = (TextView) v.findViewById(R.id.icon_text_price);
 			price.setText(((AppInfo) dataObjects[position])._price); 
 			
-			return null;
+			return v;
 		}
 		
 		
