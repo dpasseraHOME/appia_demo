@@ -3,5 +3,15 @@
 
     <string name="hello">Hello World, Appia_demoActivity!</string>
     <string name="app_name">Appia_demo</string>
+    
+    <!-- splash -->
+    
+    <!-- home -->
+    <string name="home_search_hint">Search store</string>
+    <string name="home_search_button">O</string>
+    <string name="home_greeting">Welcome,</string>
+    <string name="home_featured">Featured</string>
+    
+    <!-- app details -->
 
 </resources>

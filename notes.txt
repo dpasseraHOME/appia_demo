@@ -1,0 +1,3 @@
+Don't forget
+- title label glow
+- style search assets
